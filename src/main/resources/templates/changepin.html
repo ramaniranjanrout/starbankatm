@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change PIN</title>
+    <link rel="stylesheet" th:href="@{/css/changepin.css}">
+</head>
+<body>
+
+<div class="atm-container">
+  <div class="top-bar">
+    <div class="user">HI, <span th:text="${username}">USER</span></div>
+    <div class="logo">★ STAR BANK</div>
+    <div class="time" id="datetime"></div>
+  </div>
+  <h2 class="title">CHANGE YOUR PIN</h2>
+
+  <form th:action="@{/processChangePin}" method="post" class="pin-form">
+    <input type="password" name="oldPin" maxlength="4" placeholder="Enter Old PIN" required class="pin-input">
+    <input type="password" name="newPin" maxlength="4" placeholder="Enter New PIN" required class="pin-input">
+
+    <div class="button-group">
+      <button type="submit" class="btn">Change PIN</button>
+      <a th:href="@{/transaction}" class="btn red">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    document.getElementById('datetime').textContent = now.toLocaleString('en-IN', options);
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+</script>
+    
+</body>
+</html>

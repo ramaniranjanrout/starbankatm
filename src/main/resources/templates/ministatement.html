@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Statement</title>
+    <link rel="stylesheet" th:href="@{/css/ministatement.css}">
+</head>
+<body>
+
+<div class="atm-container">
+  <div class="top-bar">
+    <div class="user">HI, <span th:text="${username}">USER</span></div>
+    <div class="logo">★ STAR BANK</div>
+    <div class="time" id="datetime"></div>
+  </div>
+
+  <h2 class="title">MINI STATEMENT</h2>
+
+  <div class="statement-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="tx : ${transactions}">
+          <td th:text="${#temporals.format(tx.timestamp, 'dd-MMM-yyyy HH:mm')}">01-Jul-2025</td>
+          <td th:text="${tx.type}">DEPOSIT</td>
+          <td>₹ <span th:text="${tx.amount}">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="button-group">
+    <a th:href="@{/transaction}" class="btn">Back</a>
+  </div>
+</div>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    };
+    document.getElementById('datetime').textContent = now.toLocaleString('en-IN', options);
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+</script>
+
+    
+</body>
+</html>

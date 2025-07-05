@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #091540, #1c2e4a);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content-box {
+  animation: fadeIn 1.5s ease;
+}
+
+.image-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ this centers both image and button */
+}
+
+.welcome-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  margin-bottom: 30px;
+}
+
+.enter-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 18px;
+  background-color: #00aaff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.enter-btn:hover {
+  background-color: #0080cc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

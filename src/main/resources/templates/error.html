@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+</head>
+<body>
+    <div class="atm-container">
+  <div class="top-bar">
+    <div class="logo">★ STAR BANK</div>
+    <div class="time" id="datetime"></div>
+  </div>
+  <h2 class="title">TRANSACTION FAILED</h2>
+  <div class="message-box">
+    <p>Due to Insufficient Funds.</p>
+  </div>
+  <div class="button-group">
+    <a th:href="@{/transaction}" class="btn red">Try Again</a>
+  </div>
+</div>
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    document.getElementById('datetime').textContent = now.toLocaleString('en-IN', options);
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+</script>
+</body>
+</html>

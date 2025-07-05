@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+</head>
+<body>
+    <div class="atm-container">
+  <div class="top-bar">
+    <div class="logo">★ STAR BANK</div>
+  </div>
+  <h2 class="title">Create Account</h2>
+  <div th:if="${error}" style="color: red; text-align: center; margin-bottom: 10px; font-weight: bold;">
+    <p th:text="${error}">Username already exists.</p>
+</div>
+
+  <form th:action="@{/signup}" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="pin" maxlength="4" placeholder="4-digit PIN" required>
+    <input type="text" name="balance" placeholder="Amount" required>
+
+    <div class="button-group">
+      <button type="submit" class="btn blue">Sign Up</button>
+      <a th:href="@{/signin}" class="btn red">Sign In</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

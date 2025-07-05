@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #091540, #1c2e4a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.atm-container {
+    background-color: #2e2bb8;
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    width: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.service {
+    background-color: #0d1980;
+    color: #ffffff;
+    border: 2px solid white;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.service:hover {
+    background-color: #1b0808;
+}
+
+.service.red {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.service.red:hover {
+    background-color: #c0392b;
+}

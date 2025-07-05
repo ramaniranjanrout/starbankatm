@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - STAR BANK</title>
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div class="welcome-container">
+  <div class="content-box">
+    <div class="image-block">
+      <img th:src="@{/img/startbankImage.jpg}" alt="Welcome" class="welcome-image">
+      <a th:href="@{/signin}" class="enter-btn">Enter</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
